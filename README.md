@@ -35,7 +35,7 @@
    <img src =  "https://user-images.githubusercontent.com/43984584/62024015-519c6100-b20e-11e9-82da-8a20f292913a.png">
    - https://docs.conda.io/en/latest/miniconda.html
    - Python 3.7 본인의 PC 맞는 bit를 설치한다(해당프로그램은 64bit)
-   - 설치확인 방법: 윈도우키 > cmd > `python --version` 입력 > 3.7을 확인 합니다.
+    <img src = "https://user-images.githubusercontent.com/43984584/62024666-d1c3c600-b210-11e9-8bb5-3ea3a28f0286.png">
 
 2. 환경설정
 
@@ -46,6 +46,7 @@
   2. 고급 시스템 설정 링크를 누릅니다.
   3. 환경 변수를 누릅니다. 시스템 변수 섹션에서 PATH 환경 변수를 찾아 선택합니다. 편집을 누릅니다. PATH 환경 변수가 존재하지 않을 경우 새로 만들기를 누릅니다.
   4. 시스템 변수 편집(또는 새 시스템 변수) 창에서 PATH 환경 변수의 값을 지정합니다. 확인을 누릅니다. 확인을 눌러 나머지 창을 모두 닫습니다.
+- 환경 설정 및 설치확인 방법: 윈도우키 > cmd > `python --version` 입력 > 3.7을 확인 합니다.
 
 3. pyqt 설치
 
