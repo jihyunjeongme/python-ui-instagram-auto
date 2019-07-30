@@ -4,7 +4,7 @@ block_cipher = None
 
 
 a = Analysis(['app.py'],
-             pathex=['/Users/jihyun/Documents/GitHub/python-ui-pyqt'],
+             pathex=['/Users/jihyun/Documents/GitHub/python-ui-instagram-auto'],
              binaries=[],
              datas=[],
              hiddenimports=[],

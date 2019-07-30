@@ -1,3 +1,3 @@
 ([('app',
-   '/Users/jihyun/Documents/GitHub/python-ui-pyqt/dist/app',
+   '/Users/jihyun/Documents/GitHub/python-ui-instagram-auto/dist/app',
    'EXECUTABLE')],)

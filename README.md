@@ -30,7 +30,7 @@
 
    - https://github.com/jihyunjeongme/python-ui-instagram-auto/tree/master/dist
 
-2. Finder > 다운로드 > `instagram_auto` 폴더를 만들고 폴더 안에 `zip` 파일 다운로드 후 압축을 풉니다.
+2. Finder > 다운로드 > `Instagram_auto` 폴더를 만들고 폴더 안에 `zip` 파일 다운로드 후 압축을 풉니다.
 
    <img src="https://user-images.githubusercontent.com/43984584/62106691-d35cbf00-b2e0-11e9-847f-434bc89637bf.png">
 
