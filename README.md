@@ -24,11 +24,16 @@
   - Windows: 75
 - Miniconda 설치 필요
 
-## 사용법 - Mac
+## 설치방법 - Mac
 
--
+1. 파일을 다운 받습니다.
 
-## 사용법 - Windows
+   - https://github.com/jihyunjeongme/python-ui-instagram-auto/tree/master/dist
+
+2. Finder > 다운로드 > `instagram_auto` 폴더를 만들고 폴더 안에 `zip` 파일 다운로드 후 압축을 풉니다.
+   <img src="https://user-images.githubusercontent.com/43984584/62106691-d35cbf00-b2e0-11e9-847f-434bc89637bf.png">
+
+## 설치방법 - Windows
 
 1. miniconda 설치 합니다.
 
@@ -50,10 +55,33 @@
 
 3. pyqt 설치
 
-   - 윈도우키 > cmd > `pip install pyqt5-sip` > 엔터 > `pip install pyqt5` 엔터
+   - 윈도우키 > cmd > `conda install pyqt` > 엔터
+     <!-- - 윈도우키 > cmd > `pip install pyqt5-sip` > 엔터 > `pip install pyqt5` 엔터 -->
 
 4. 아래의 URL을 접속 > `disk.zip` 다운로드 > 압축을 풀고 `app.py` 파일을 실행 시킵니다.
    - https://github.com/jihyunjeongme/python-ui-instagram-auto_win/tree/master/dist
+
+## 사용방법
+
+<img src="https://user-images.githubusercontent.com/43984584/62023622-a7700980-b20c-11e9-9e98-1a7bec09756d.png">
+
+- ID: 인스타그램(email)
+- PW: 패스워드
+- Tag1~3: 좋아요를 누를 태그명 (각 200개씩 누름)
+- UserName: **Mac**은 **필수로** 입력/ Windows 사용자는 공란
+  - Finder에서 확인 할 수 있는 유저네임을 입력합니다.
+  - 예시
+
+      <img src="https://user-images.githubusercontent.com/43984584/62106766-0901a800-b2e1-11e9-9868-d494977043d6.png">
+
+---
+
+## 사용시 주의사항
+
+1. 창을 내리면 프로그램이 동작하지 않습니다. 띄워준 채로 두어야 합니다.
+2. 하루 기준 처음부터 600 이상 좋아요 올릴시 아래와
+3. 같이 일시 정지를 당할 수 있습니다.
+   - 처음엔 하루 기준 600 이하로 시작해서 꾸준히 횟수를 올리는 것을 권장합니다.
 
 ## 기타 문의
 
