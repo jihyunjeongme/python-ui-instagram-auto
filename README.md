@@ -1,5 +1,3 @@
-# python-ui-instagram-auto
-
 <h1 align="center">
   <br>
   <a href="http://jikao.herokuapp.com/"><img src="https://user-images.githubusercontent.com/43984584/62023622-a7700980-b20c-11e9-9e98-1a7bec09756d.png" alt="Markdownify" width="400"></a>
@@ -69,6 +67,7 @@
 - PW: 패스워드
 - Tag1~3: 좋아요를 누를 태그명 (각 200개씩 누름)
 - UserName: **Mac**은 **필수로** 입력/ Windows 사용자는 공란
+
   - Finder에서 확인 할 수 있는 유저네임을 입력합니다.
   - 예시
 
