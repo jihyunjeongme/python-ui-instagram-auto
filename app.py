@@ -15,7 +15,7 @@ from selenium.common.exceptions import NoSuchElementException
 class MyApp(QWidget):
     def __init__(self):
         super().__init__()
-
+ 
         self.btn1 = QPushButton("&Like", self)
 
         self.lbl1 = QLabel("ID", self)
