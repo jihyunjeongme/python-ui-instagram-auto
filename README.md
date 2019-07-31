@@ -30,7 +30,7 @@
 
    - https://github.com/jihyunjeongme/python-ui-instagram-auto/tree/master/dist
 
-2. Finder > 다운로드 > `Instagram_auto` 폴더를 만들고 폴더 안에 `zip` 파일 다운로드 후 압축을 풉니다.
+2. Finder > 다운로드 > `Instagram_auto` 폴더를 만들고 폴더 안에 `zip` 파일 다운로드 후 압축을 풉니다. (대문자 유의)
 
    <img src="https://user-images.githubusercontent.com/43984584/62106691-d35cbf00-b2e0-11e9-847f-434bc89637bf.png">
 
@@ -94,6 +94,7 @@
 2. 하루 기준 처음부터 600 이상 좋아요 올릴시 아래와
 3. 같이 일시 정지를 당할 수 있습니다.
    - 처음엔 하루 기준 600 이하로 시작해서 꾸준히 횟수를 올리는 것을 권장합니다.
+4. Tag당 200개씩으로 현재 설정되어 있습니다.
 
 ---
 
