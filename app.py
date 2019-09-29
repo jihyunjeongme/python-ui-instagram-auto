@@ -1,8 +1,10 @@
 # Reference
 # https://wikidocs.net/book/2165
 # https://wikidocs.net/35492
+# 쿠키 관련 로직 추가 할것: https://testmanager.tistory.com/163
 
 import sys,os
+import pickle
 from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QLineEdit, QPushButton
 import time
 import datetime
@@ -36,6 +38,12 @@ class MyApp(QWidget):
         self.lbl6 = QLabel("UserName", self)
         self.lbl6.move(30, 190)
 
+        self.lbl7 = QLabel("LikeCount", self)
+        self.lbl7.move(30, 220)
+
+        # self.lbl8 = QLabel("TimelinLike", self)
+        # self.lbl8.move(30, 250)
+
         self.qle1 = QLineEdit(self)
         self.qle1.move(100, 40)
 
@@ -56,9 +64,15 @@ class MyApp(QWidget):
         self.qle6 = QLineEdit(self)
         self.qle6.move(100, 190)
 
+        self.qle7 = QLineEdit(self)
+        self.qle7.move(100, 220)
+
+        # self.qle8 = QLineEdit(self)
+        # self.qle8.move(100, 250)
+
         self.setWindowTitle("Instagram Auto Program")
         # x, y, width, height
-        self.setGeometry(800, 400, 300, 230)
+        self.setGeometry(800, 400, 300, 260)
         self.show()
 
         # 버튼에 기능을 할당하는 코드
@@ -66,9 +80,6 @@ class MyApp(QWidget):
         # self.initUI()
 
     def printTextEdit(self):
-        print(self.qle1.text())
-        print(self.qle2.text())
-
         self.instagramStart()
 
     def instagramStart(self):
@@ -82,7 +93,7 @@ class MyApp(QWidget):
         self.options.add_argument("window-size=1920x1080")
         self.options.add_argument("disable-gpu")
         self.options.add_argument(
-            "user-agent=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"
+            "user-agent=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.87 Safari/537.36"
         )
         self.options.add_argument("lang=ko_KR")
 
@@ -90,36 +101,31 @@ class MyApp(QWidget):
 
         id = self.qle1.text()
         password = self.qle2.text()
-
-        # timeline_like_count = 120
-
-        # hash_tags : 좋아요할 전체 해시태그 리스트
-        # important_hash_tags : 중요해서 더 많이 like할 해시태그 리스트
-
-        # important_hash_tags = ["토요일", "카페", "불금"]
-
-        # important_hash_tags_count = 200
-        # hash_tags = ["", "카페", "불금"]
-        # hash_tags_count = 600
+       
 
         important_hash_tags = [self.qle3.text(), self.qle4.text(), self.qle5.text()]
-        important_hash_tags_count = 200
+        important_hash_tags_count = int(self.qle7.text())
+        # important_hash_tags_count = 116
+
+        # timeline_like_count = int(self.qle8.text())
+
         hash_tags = [self.qle3.text(), self.qle4.text(), self.qle5.text()]
-        hash_tags_count = 600
+        hash_tags_count = 500
 
         # ======== 3. InstaJob Class ======
         print("browser loading..")
         global browser
         browser = webdriver.Chrome(
             # "/Users/jihyun/Documents/GitHub/instagram-auto-like-with-Python/chromedriver_74",
-            "/Users" + "/" + self.qle6.text() + "/Downloads/Instagram_auto/chromedriver_74",
+            "/Users" + "/" + self.qle6.text() + "/Downloads/Instagram_auto/chromedriver_76",
             # "/Users/jihyun/Downloads/Instagram_auto/chromedriver_74",
             # os.getcwd() + "/chromedriver_74",
             # sys.path[1] + "/chromedriver_74",
-            chrome_options=self.options,
+            options=self.options,
         )
 
         
+        ## 주석 처리
         browser.execute_script(
             "Object.defineProperty(navigator, 'plugins', {get: function() {return[1, 2, 3, 4, 5]}})"
         )
@@ -132,24 +138,33 @@ class MyApp(QWidget):
             {return 'NVIDIA GeForce GTX 980 Ti OpenGL Engine';}return getParameter(parameter);};"
         )
 
-        browser.get("https://instagram.com/")
+        # 쿠키 로직 추가 (2019.09.16)
+        browser.get("https://chrome.google.com/webstore/detail/editthiscookie/fngmhnnpilhplaeedifhccceomclgfbg?utm_source=chrome-ntp-icon")
+        time.sleep(60)
 
-        # 로그인
-        login_link = browser.find_element_by_css_selector(
-            "p.izU2O"
-        ).find_element_by_css_selector("a")
-        login_link.click()
+        browser.get("https://instagram.com/")
+        # pickle.dump(browser.get_cookies(), open("cookies.pkl","wb"))
+
         time.sleep(3.5)
 
-        username_input = browser.find_elements_by_css_selector("input._2hvTZ")[0]
-        username_input.send_keys(id)
-        time.sleep(2 + random.random() * 0.3)
-        password_input = browser.find_elements_by_css_selector("input._2hvTZ")[1]
-        password_input.send_keys(password)
-        time.sleep(1)
-        password_input.submit()
-        time.sleep(2)
+        ######## 임시 주석
+        # # 로그인
+        # login_link = browser.find_element_by_css_selector(
+        #     "p.izU2O"
+        # ).find_element_by_css_selector("a")
+        # login_link.click()
+        # time.sleep(3.5)
 
+        # username_input = browser.find_elements_by_css_selector("input._2hvTZ")[0]
+        # username_input.send_keys(id)
+        # time.sleep(2 + random.random() * 0.3)
+        # password_input = browser.find_elements_by_css_selector("input._2hvTZ")[1]
+        # password_input.send_keys(password)
+        # time.sleep(1)
+        # password_input.submit()
+        # time.sleep(60)
+        
+        ### 임시 주석
         browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")
 
         try:
@@ -175,7 +190,7 @@ class MyApp(QWidget):
                 time.sleep(5 + random.random() * 1.2)
                 element = browser.find_elements_by_css_selector("div._9AhH0")[9]
                 element.click()
-                time.sleep(5)
+                time.sleep(5 + random.random() * 1.2)
 
                 if any(e in hash_tag for e in important_hash_tags):
                     count_number = important_hash_tags_count
@@ -183,6 +198,8 @@ class MyApp(QWidget):
                     count_number = hash_tags_count
 
                 for i in range(1, count_number):
+                    print(i,"/",count_number)
+                    # print(count_number)
                     try:
                         # 좋아요 해쉬태그 지정
                         like = browser.find_element_by_css_selector(
@@ -193,19 +210,19 @@ class MyApp(QWidget):
                         like.click()
 
                         # 다음 포스팅으로 넘어가기전 대기
-                        time.sleep(2 + random.random() * 1.2)
+                        time.sleep(4.5 + random.random() * 1.2)
 
                         # 다음 포스팅으로 넘어감
                         browser.find_element_by_css_selector(
                             "span.glyphsSpriteHeart__outline__24__grey_9.Szr5J"
                         ).click()
 
-                        time.sleep(3.2 + random.random() * 1.3)
+                        time.sleep(4.5 + random.random() * 1.3)
                     except:
                         browser.find_element_by_css_selector(
                             "a.HBoOv.coreSpriteRightPaginationArrow"
                         ).click()
-                        time.sleep(1 + random.random() * 1.2)
+                        time.sleep(4 + random.random() * 1.2)
 
             except NoSuchElementException as e:
                 print("NoSuch Error", e)
@@ -213,6 +230,11 @@ class MyApp(QWidget):
 
             except Exception as e:
                 print("Error! ", e)
+
+            # 로직 다돌 고 나오는 것 추가 할것
+
+        browser.quit()
+
 
 
 if __name__ == "__main__":
